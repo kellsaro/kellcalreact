@@ -1,4 +1,9 @@
-class AppointmentForm extends React.Component{
+import React from 'react'
+import Datetime from 'react-datetime'
+import 'react-datetime/css/react-datetime'
+import { Label } from './label'
+
+export default class AppointmentForm extends React.Component {
   constructor(props){
     super(props);
 
@@ -9,7 +14,7 @@ class AppointmentForm extends React.Component{
 
   handleChange(e){
     let name = e.target.name;
-    obj = {};
+    const obj = {};
     obj[name]= e.target.value; 
     this.props.onUserInput(obj);
   }	
@@ -37,7 +42,7 @@ class AppointmentForm extends React.Component{
       <div>
         <h2>Make a new appointment</h2>
 
-	<Label label='Enter a title, date and time' />    
+	      <Label label='Enter a title, date and time' />    
 
         <form onSubmit={ (e) => this.handleSubmit(e) } >
           <input name='title' 

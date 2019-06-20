@@ -67,12 +67,12 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Activates jquery
-gem 'jquery-rails', '~> 4.3.3'
+# gem 'jquery-rails', '~> 4.3.3'
 # jquery effects
 # gem 'jquery-ui-rails', '~> 6.0.1' 
 
-# Adds react for integrating with rails
-gem 'react-rails'
+# Adds React support by installing the webpacker gem
+gem 'webpacker'
 
-# Add rubocop linter
+# Adds rubocop linter
 gem 'rubocop-rails'

@@ -11,6 +11,5 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_tree .
- *= require react-datetime
  *= require_self
  */
