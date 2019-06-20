@@ -22,12 +22,11 @@ class Appointments extends React.Component{
     }
 
     $.post('/appointments', { appointment: appointment })
-     .done(function(data){
-       this.addNewAppointment(this.state.appointments, data);
-     }.bind(this));  
+     .done( (data) => this.addNewAppointment(this.state.appointments, data) );  
   }
 
   addNewAppointment(appointments, appointment){
+    // React addons is not working properly
     //let appointments = React.addons.update(this.state.appointments, {$push: [appointment]});
     //this.setState({ appointments: appointments });
     //this.setState({ appointments: appointments.push(appointment)});
@@ -37,9 +36,9 @@ class Appointments extends React.Component{
     return (
       <div>
         <AppointmentForm title={this.state.title} 
-	                       apt_time={this.state.apt_time}
-                         onUserInput={this.handleUserInput}
-                         onFormSubmit={this.handleSubmit} />
+	                 apt_time={this.state.apt_time}
+                         onUserInput={ this.handleUserInput }
+                         onFormSubmit={ this.handleSubmit } />
         <AppointmentsList appointments={this.state.appointments} />
       </div>
     );
