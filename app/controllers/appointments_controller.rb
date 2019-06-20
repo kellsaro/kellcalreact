@@ -4,7 +4,6 @@ class AppointmentsController < ApplicationController
 
   def index
     find_appointments
-    @appointment = Appointment.new
   end
 
   def create
@@ -13,7 +12,7 @@ class AppointmentsController < ApplicationController
     if @appointment.save
       render json: @appointment
     else
-      render json: @appointment.errors, status: :unprocesable_entity
+      render json: @appointment.errors, status: :unprocessable_entity
     end
   end
 
