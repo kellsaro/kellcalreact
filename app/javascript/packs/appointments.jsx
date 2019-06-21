@@ -9,14 +9,19 @@ import 'primereact/resources/themes/nova-light/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import moment from 'moment';
+import PropTypes from 'prop-types';
 
 export default class Appointments extends React.Component{
+  static propTypes = {
+    appointments: PropTypes.array
+  }
+
   constructor(props){
     super(props);
     this.state = {
       appointments: this.props.appointments,
       title: { value: '', valid: false },
-      apt_time: { value: '', valid: false },
+      apt_time: { value: new Date(), valid: false },
       formValid: false
     }
   }

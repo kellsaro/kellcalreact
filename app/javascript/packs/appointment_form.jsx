@@ -2,8 +2,17 @@ import React from 'react'
 import Datetime from 'react-datetime'
 import 'react-datetime/css/react-datetime'
 import { Label } from './label'
+import PropTypes from 'prop-types'
 
 export default class AppointmentForm extends React.Component {
+
+  static propTypes = {
+    title: PropTypes.string,
+    apt_time: PropTypes.instanceOf(Date),
+    onUserInput: PropTypes.func,
+    onFormSubmit: PropTypes.func,
+    formValid: PropTypes.bool
+  }
 
   handleChange = (e) => {
     const fieldName = 'title';
