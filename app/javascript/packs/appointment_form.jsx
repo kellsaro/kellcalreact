@@ -4,33 +4,22 @@ import 'react-datetime/css/react-datetime'
 import { Label } from './label'
 
 export default class AppointmentForm extends React.Component {
-  constructor(props){
-    super(props);
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handlesubmit = this.handleSubmit.bind(this);
-    this.handleAptTime = this.handleAptTime.bind(this);
-  }
-
-  handleChange(e){
-    let name = e.target.name;
-    const obj = {};
-    obj[name]= e.target.value; 
-    this.props.onUserInput(obj);
+  handleChange = (e) => {
+    const fieldName = 'title';
+    const fieldValue = e.target.value;
+    this.props.onUserInput(fieldName, fieldValue);
   }	
 
-  handleSubmit(e){
+  handleSubmit = (e) => {
     e.preventDefault();
     this.props.onFormSubmit();
   }
 
-  handleAptTime(e){
-    let name = 'apt_time';
-    let obj = {};
-
-    if(obj[name] = e.toDate()){
-      this.props.onUserInput(obj);
-    }
+  handleAptTime = (e) => {
+    const fieldName = 'apt_time';
+    const fieldValue = e.toDate();
+    this.props.onUserInput(fieldName, fieldValue);
   }
 
   render(){
@@ -43,22 +32,23 @@ export default class AppointmentForm extends React.Component {
         
 	      <Label label='Enter a title, date and time' />    
 
-        <form onSubmit={ (e) => this.handleSubmit(e) } >
+        <form onSubmit={ this.handleSubmit } >
           <input name='title' 
                  type='text' 
                  placeholder='Appointment Title' 
-                 value={this.props.title} 
-                 onChange={ (e) => this.handleChange(e) } />
+                 value={this.props.title.value} 
+                 onChange={ this.handleChange } />
           
           <Datetime input={false}
                     open={true}
                     inputProps={inputProps} 
-                    value={this.props.apt_time}
-                    onChange={ (e) => this.handleAptTime(e) } />
+                    value={this.props.apt_time.value}
+                    onChange={ this.handleAptTime } />
 
           <input  type='submit' 
                   value='Make Appointment'
-                  className='submit-button' />
+                  className='submit-button'
+                  disabled={!this.props.formValid} />
         </form>	  
       </div>	  
     );
