@@ -1,24 +1,6 @@
-# README
+# kellcalreact
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+React calendar application backed by Ruby on Rails
 
-Things you may want to cover:
+This README is a work in progress...
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
